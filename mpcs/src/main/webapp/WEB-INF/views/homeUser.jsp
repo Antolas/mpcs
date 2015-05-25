@@ -19,7 +19,7 @@
 	
   
 	
-	<link rel="stylesheet" type="text/css" href="mpcsstyle.css">
+	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/mpcsstyle.css">
 	
 	<script src="http://maps.googleapis.com/maps/api/js"></script>
 	
@@ -61,15 +61,15 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span> 
       </button>
-      <a class="navbar-brand" href="homeUser.html">MPCS</a>
+      <a class="navbar-brand" href="<spring:url value= "/user"/>">MPCS</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><a href="personalGallery.html">Personal Gallery</a></li>
-        <li><a href="un-register.html">Un-register</a></li>		
+        <li><a href="<spring:url value= "/user/gallery/map"/>">Personal Gallery</a></li>
+        <li><a href="<spring:url value= "/user/unregister"/>">Un-register</a></li>		
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="home.html"><span class="glyphicon glyphicon-log-out"></span></span> Logout</a></li>
+        <li><a href="<spring:url value= "/index"/>"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
       </ul>
     </div>
   </div>
@@ -80,14 +80,14 @@
     <h1>Mountain Photo Collection System</h1>      
     <p>Hello Name Surname, welcome to Mountain Photo Collection System.</p>
 	<p>Click on Search to find Mountain Photos.</p>
-	<a href="#mapGallery"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span> SEARCH</button></a>
+	<a href="<spring:url value= "/user/gallery/map"/>"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span> SEARCH</button></a>
 </div>
 </header>
 
 <section>
 <div id="mapGallery" class="container-fluid gallery">
-	<a name="mapGallery"></a><h1>Map Gallery</h1></a>
-	<div class="secondGallery"><a href="#classicGallery">Classic Gallery</a></div>
+	<h1>Map Gallery</h1>
+	<div class="secondGallery"><a href="<spring:url value= "/user/gallery/classic"/>">Classic Gallery</a></div>
 </div>
 <div id="googleMap"></div>
 </section>
@@ -95,8 +95,8 @@
 <section>
 
 <div id="classicGallery" class="container-fluid gallery">
-	<a name="classicGallery"></a><h1>Classic Gallery</h1></a>
-	<div class="secondGallery"><a href="#mapGallery">Map Gallery</a></div>
+	<h1>Classic Gallery</h1>
+	<div class="secondGallery"><a href="<spring:url value= "/user/gallery/map"/>">Map Gallery</a></div>
 </div>
 <div id="fotoPreview">
 	<div class="container">

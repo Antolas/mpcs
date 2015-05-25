@@ -16,7 +16,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
   
-	<link rel="stylesheet" type="text/css" href="mpcsstyle.css">
+	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/mpcsstyle.css">
 	
 </head>
 <body>
@@ -28,20 +28,12 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span> 
       </button>
-      <a class="navbar-brand" href="home.html">MPCS</a>
+      <a class="navbar-brand" href=" <spring:url value= "/index"/>">MPCS</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li><a href="#"></a></li>
-        <li><a href="#"></a></li> 
-        <li><a href="#"></a></li>
-		<li><a href="#"></a></li>
-		<li><a href="#"></a></li>
-		<li><a href="#"></a></li>		
-      </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span></span> Login</a></li>
-		<li><a href="register.html"><span class="glyphicon glyphicon-user"></span></span> Register</a></li>
+        <li><a href=" <spring:url value= "/login"/>"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+		<li><a href=" <spring:url value= "/register"/>"><span class="glyphicon glyphicon-user"></span> Register</a></li>
       </ul>
     </div>
   </div>

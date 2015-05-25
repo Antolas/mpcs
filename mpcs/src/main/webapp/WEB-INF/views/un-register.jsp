@@ -16,7 +16,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
   
-	<link rel="stylesheet" type="text/css" href="mpcsstyle.css">
+	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/mpcsstyle.css">
 	
 	<script src="http://maps.googleapis.com/maps/api/js"></script>
 	
@@ -30,15 +30,15 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span> 
       </button>
-      <a class="navbar-brand" href="homeUser.html">MPCS</a>
+      <a class="navbar-brand" href="<spring:url value= "/user"/>">MPCS</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><a href="personalGallery.html">Personal Gallery</a></li>
-        <li><a href="un-register.html">Un-register</a></li>		
+        <li><a href="<spring:url value= "/user/gallery/map"/>">Personal Gallery</a></li>
+        <li><a href="<spring:url value= "/user/unregister"/>">Un-register</a></li>		
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="home.html"><span class="glyphicon glyphicon-log-out"></span></span> Logout</a></li>
+        <li><a href="<spring:url value= "/index"/>"><span class="glyphicon glyphicon-log-out"></span></span> Logout</a></li>
       </ul>
     </div>
   </div>

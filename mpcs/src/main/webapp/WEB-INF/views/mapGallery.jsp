@@ -21,14 +21,97 @@
 	
 	<script src="http://maps.googleapis.com/maps/api/js"></script>
 	
-	<script>
+	
+
+<script
+	src="<%=request.getContextPath()%>/resources/js/markerclusterer.js"
+	type="text/javascript"></script>
+	
+	
+	<script type="text/javascript">
 		function initialize() {
+			
 			var mapProp = {
 				center:new google.maps.LatLng(36,12),
 				zoom:3,
 				mapTypeId:google.maps.MapTypeId.SATELLITE
 			};
-		var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+		
+			var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+		
+			var clusterStyles = [
+			                     {
+			                       textColor: 'white',
+			                       textSize: 16,
+			                       url: '<%=request.getContextPath()%>/resources/img/plussign.png',
+			                       height: 50,
+			                       width: 50
+			                     },
+			                    {
+			                       textColor: 'white',
+			                       textSize: 16,
+			                       url: '<%=request.getContextPath()%>/resources/img/plussign.png',
+			                       height: 50,
+			                       width: 50
+			                     },
+			                    {
+			                       textColor: 'white',
+			                       textSize: 16,
+			                       url: '<%=request.getContextPath()%>/resources/img/plussign.png',
+						height : 50,
+						width : 50
+					} ];
+
+			var mcOptions = {
+				gridSize : 30,
+				styles : clusterStyles,
+				maxZoom : 12
+			};
+
+			var markers = [];
+			var i;
+
+			var infowindow = new google.maps.InfoWindow();
+
+			<c:forEach items="${mountains}" var="mountain" varStatus="status">
+
+			var lat = "${mountain.lat}";
+
+			var lng = "${mountain.lng}";
+			
+			var sign = new google.maps.MarkerImage(
+				    '${mountain.source}',
+				    null,
+				    null,
+				    /* Offset x axis 33% of overall size, Offset y axis 100% of overall size */
+				    new google.maps.Point(40, 110), 
+				    new google.maps.Size(100, 100));
+
+			var marker = new google.maps.Marker({
+				position : new google.maps.LatLng(lat, lng),
+
+				animation : google.maps.Animation.BOUNCE,
+				icon : sign
+			});
+
+			google.maps.event
+					.addListener(
+							marker,
+							'click',
+							function() {
+
+								infowindow
+										.setContent("<a href='<spring:url value='/photo/${mountain.id}'/>'>${mountain.name}</a>");
+								infowindow.open(map, this);
+
+							});
+
+			markers.push(marker);
+
+			</c:forEach>
+
+			var markerCluster = new MarkerClusterer(map, markers, mcOptions);
+		
 		}
 		google.maps.event.addDomListener(window, 'load', initialize);
 	</script>

@@ -1,6 +1,6 @@
 package it.polimi.awt.mpcs.repository;
 
-public interface Attivit‡Repository {
+public interface UserRepository {
 
 	void saveUserProfile();
 	

@@ -19,36 +19,6 @@
 
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/mpcsstyle.css">
 	
-	<script src="http://maps.googleapis.com/maps/api/js"></script>
-	
-	<script>
-		function initialize() {
-			var mapProp = {
-				center:new google.maps.LatLng(36,12),
-				zoom:3,
-				mapTypeId:google.maps.MapTypeId.SATELLITE
-			};
-		var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
-		}
-		google.maps.event.addDomListener(window, 'load', initialize);
-	</script>
-	
-	<script>
-		$(document).ready(function(){
-           $('li img').on('click',function(){
-                var src = $(this).attr('src');
-                var img = '<img src="' + src + '" class="img-responsive"/>';
-                $('#myModal').modal();
-                $('#myModal').on('shown.bs.modal', function(){
-                    $('#myModal .modal-body').html(img);
-                });
-                $('#myModal').on('hidden.bs.modal', function(){
-                    $('#myModal .modal-body').html('');
-                });
-           });  
-        })
-	</script>
-	
 </head>
 <body>
 <nav class="navbar navbar-inverse">
@@ -75,7 +45,10 @@
     <h1>Mountain Photo Collection System</h1>      
     <p>Welcome to Mountain Photo Collection System.</p>
 	<p>Click on Search to find Mountain Photos.</p>
-	<a href="<spring:url value= "/map"/>"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span> SEARCH</button></a>
+	<a href="<spring:url value= "/search"/>"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span> SEARCH</button></a>
+	<br><br>
+	<p>Or click on Gallery to view the photo Gallery.</p>
+	<a href="<spring:url value= "/gallery"/>"><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-picture"></span> GALLERY</button></a>
 </div>
 </header>
 </body>

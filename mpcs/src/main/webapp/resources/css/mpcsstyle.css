@@ -22,6 +22,19 @@ header{
 	width:40%;
 }
 
+.centered{
+	margin-left: auto;
+	margin-right:auto;
+}
+
+#photocontainer{
+	margin-left: auto;
+	margin-right:auto;
+	padding-left:auto;
+	padding-right:auto;
+	width:60%;
+}
+
 .navbar-inverse {
 	margin-bottom:0px;
 }

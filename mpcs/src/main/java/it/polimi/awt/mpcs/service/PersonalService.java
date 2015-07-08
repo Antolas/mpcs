@@ -6,7 +6,7 @@ public interface PersonalService {
 	
 	void personalPhoto();
 	
-	void savePhoto();
+	void savePhoto(int id);
 	
 	void deletePhoto();
 }
